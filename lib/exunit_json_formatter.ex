@@ -1,6 +1,8 @@
 defmodule ExUnitJsonFormatter do
   @moduledoc """
   Documentation for `ExUnitJsonFormatter`.
+
+  For another approach that inspired some of this work, see [junit_formatter](https://github.com/victorolinasc/junit-formatter).
   """
   require Record
   use GenServer
@@ -130,8 +132,6 @@ defmodule ExUnitJsonFormatter do
           total_time_usecs: total_time_usecs
         )
       ) do
-    IO.inspect(modules)
-
     summarized_modules = Enum.map(modules, &summarize_test_module/1)
 
     %{
